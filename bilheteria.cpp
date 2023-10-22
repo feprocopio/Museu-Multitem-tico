@@ -1,4 +1,4 @@
-#include <stdlib.h>
+	#include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
 #include <time.h>
@@ -20,71 +20,76 @@ int main(void)
     printf("\tInforme o seu nome: ");
     scanf("\t\n\n%s", nome);
     system("cls");
-    printf("\tOlá %s, é uma prazer recebe-lo(a) em nosso Museu!!!\n", nome);
+    printf("\tOlÃ¡ %s, Ã© uma prazer recebe-lo(a) em nosso Museu!!!\n", nome);
 
 
     printf("\t---------------------------------------\n");
     printf("\t SELECIONE O TIPO DE INGRESSO: \n\n");
 
+			
+	do
+    {
+		printf("\t [1]Inteira: 10,00 R$ \n");
+        printf("\t [2]Meia: 5,00 R$ \n");
+        scanf("%i",&museu1); //variavel forma de pagamento
+        frase [50]= &museu1;
+        
 
-			do
-    			{
-				printf("\t [1]Inteira: 10,00 R$ \n");
-        		printf("\t [2]Meia: 5,00 R$ \n");
-        		scanf("%i",&museu1); //variavel forma de pagamento
-
-                frase [50]= &museu1;
-
-                pont_arq = fopen("meiaouinteira.csv", "a"); // "a" vai adicionar mais conteudo
-        		// testando para ver se o arquivo foi realmente criado
-        		if (pont_arq == NULL)
+        pont_arq = fopen("tipoingresso.csv", "a"); // "a" vai adicionar mais conteudo
+        // testando para ver se o arquivo foi realmente criado
+        if (pont_arq == NULL)
         {
             printf("Erro ao tentar abrir!");
             exit(1);
         }
         else{
-            printf("Por gentileza, confirme novamente a opção escolhida, [1] ou [2] \n");
+            printf("Por gentileza, confirme novamente a opÃ§Ã£o escolhida, [1] ou [2] \n");
             scanf("%s", frase);
-            // usando printf para armazenar a string no arquivo
-            fprintf(pont_arq, "%s\n", &frase);
+
+
+            // usando printf para armazenar a strinf no arquivo
+            fprintf(pont_arq, "A opÃ§Ã£o escolhida por %s foi: %s\n", &nome, &frase);
 
             // usanfo fclose para fechar o arquivo
             fclose(pont_arq);
+
             printf("\nDados gravados com sucesso\n");
         }
+        
+        if (museu1 == 0)  //se o usuÃ¡rio digitar nenhum dos numeros espepcificados
+        {
+            museu1 = 3;
+        }
+        if (museu1 > 2)
+        {
+            printf("OpÃ§Ã£o invalida, tente novamente.\n"); // repetiÃ§Ã£o atÃ© ele digitar corretamente
+        }
 
-    fclose(pont_arq);
-
-        		if (museu1 == 0)  //se o usuário digitar nenhum dos numeros espepcificados
-        		{
-            		museu1 = 3;
-        		}
-        			if (museu1 > 2)
-        			{
-            			printf("Opção invalida, tente novamente.\n"); // repetição até ele digitar corretamente
-        			}
-
-    			}while(museu1 > 2 );(museu1 < 1);
-
+    }while(museu1 > 2 );(museu1 < 1);
+    		
     printf("\t---------------------------------------\n");
 
-    printf("Quantos ingressos você deseja comprar? ");
+
+    printf("Quantos ingressos vocÃª deseja comprar? ");
     scanf("%d", &quantidade);
+
+
     if ( museu1 ==1 ) //se ele escolher ingresso inteira
     {
         float preco_total = quantidade * museu_inteira;
-        printf(" Preço total: R$%.2f\n", preco_total);
+        printf(" PreÃ§o total: R$%.2f\n", preco_total);
     }
 
     if ( museu1 ==2 )  //se ele escolher ingresso meia
     {
         float preco_total = quantidade * museu_meia;
-        printf(" Preço total: R$%.2f\n", preco_total);
+        printf(" PreÃ§o total: R$%.2f\n", preco_total);
     }
+
 
     for( ; ;)
     {
-        printf("\n\n\tQual será a forma de pagamento?\n\t[1] PIX\n\t[2] Dinheiro\n\t[3] Débito\n\t[4] Crédito\n");
+        printf("\n\n\tQual serÃ¡ a forma de pagamento?\n\t[1] PIX\n\t[2] Dinheiro\n\t[3] DÃ©bito\n\t[4] CrÃ©dito\n");
         scanf("%d", &pagamento);
         if (pagamento == 1)
         {
@@ -100,7 +105,8 @@ int main(void)
         }
         if (pagamento == 2)
         {
-            system("cls");//para limpar a tela
+            system("cls");
+
             printf("\tPagamento sendo processado...\n");
             Sleep(3000);
             system("cls");
@@ -112,7 +118,8 @@ int main(void)
 
         if (pagamento == 3)
         {
-            system("cls");//para limpar a tela
+            system("cls");
+
             printf("\tPagamento sendo processado...\n");
             Sleep(3000);
             system("cls");
@@ -124,7 +131,7 @@ int main(void)
 
         if (pagamento == 4)
         {
-            system("cls");//para limpar a tela
+            system("cls");
 
             printf("\tPagamento sendo processado...\n");
             Sleep(3000);
@@ -136,15 +143,15 @@ int main(void)
         }
         else
         {
-            printf("\nOpção invalida, tente novamente.\n");
+            printf("\nOpÃ§Ã£o invalida, tente novamente.\n");
         }
     }
 
 
-    /* Função srand vai utilizar a leitura do relogio do sistema*/
+    /* FunÃ§Ã£o srand vai utilizar a leitura do relogio do sistema*/
     srand(time(NULL));
-    num = rand() % 100000; /* Função para escolher um numéro aleatória (token)*/
-    printf("\n\tSeu token é o N° %d\n", num);
+    num = rand() % 100000; /* FunÃ§Ã£o para escolher um numÃ©ro aleatÃ³ria (token)*/
+    printf("\n\tSeu token Ã© o NÂ° %d\n", num);
 
     int verificar;
 
@@ -154,7 +161,7 @@ int main(void)
     {
         printf("\t\nInforme o seu token: ");
         scanf("%d", &verificar);
-        system("cls");//para limpar a tela
+        system("cls");
         printf("Validando...");
         Sleep(1500);
 
@@ -163,7 +170,7 @@ int main(void)
             system("cls");
             Sleep(4000);
             printf("Acesso negado!");
-            printf("\n\n\t\t\t\t\t\t\tToken inválido. Tente novamente:     Pedido: N° %d", num);
+            printf("\n\n\t\t\t\t\t\t\tToken invÃ¡lido. Tente novamente:     Pedido: NÂ° %d", num);
         }
         else
         {
@@ -174,7 +181,8 @@ int main(void)
         }
     }
 
-    printf("\n\n\n-----------------------------------------------------------------------------------------\n");
+    printf("\n\n\n------------------------------------------------------------------------------\n");
 
-
+    
+    system("pause");
 }
