@@ -1,6 +1,5 @@
 # Museu-Multitematico
 Museu
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <conio.h>
@@ -29,18 +28,18 @@ int main(void)
     printf("\t---------------------------------------\n");
     printf("\t SELECIONE O TIPO DE INGRESSO: \n\n");
 
+			
+			do
+    			{
+				printf("\t [1]Inteira: 10,00 R$ \n");
+        		printf("\t [2]Meia: 5,00 R$ \n");
+        		scanf("%i",&museu1); //variavel forma de pagamento
+        	 frase [50]= &museu1;
+        
 
-    do
-{
-	printf("\t [1]Inteira: 10,00 R$ \n");
-        printf("\t [2]Meia: 5,00 R$ \n");
-        scanf("%i",&museu1); //variavel forma de pagamento
-
-        frase [50]= &museu1;
-
-        pont_arq = fopen("meiaouinteira.csv", "a"); // "a" vai adicionar mais conteudo
-        // testando para ver se o arquivo foi realmente criado
-        if (pont_arq == NULL)
+        		pont_arq = fopen("tipoingresso.csv", "a"); // "a" vai adicionar mais conteudo
+        		// testando para ver se o arquivo foi realmente criado
+        		if (pont_arq == NULL)
         {
             printf("Erro ao tentar abrir!");
             exit(1);
@@ -48,29 +47,35 @@ int main(void)
         else{
             printf("Por gentileza, confirme novamente a opção escolhida, [1] ou [2] \n");
             scanf("%s", frase);
-            // usando printf para armazenar a string no arquivo
-            fprintf(pont_arq, "%s\n", &frase);
+
+
+            // usando printf para armazenar a strinf no arquivo
+            fprintf(pont_arq, "A opção escolhida por %s foi: %s\n", &nome, &frase);
 
             // usanfo fclose para fechar o arquivo
             fclose(pont_arq);
+
             printf("\nDados gravados com sucesso\n");
         }
+        
+        		if (museu1 == 0)  //se o usuário digitar nenhum dos numeros espepcificados
+        		{
+            		museu1 = 3;
+        		}
+        			if (museu1 > 2)
+        			{
+            			printf("Opção invalida, tente novamente.\n"); // repetição até ele digitar corretamente
+        			}
 
-        if (museu1 == 0)  //se o usuário digitar nenhum dos numeros espepcificados
-        {
-            museu1 = 3;
-        }
-        if (museu1 > 2)
-        {
-            	printf("Opção invalida, tente novamente.\n"); // repetição até ele digitar corretamente
-        }
-
-    }while(museu1 > 2 );(museu1 < 1);
-
+    			}while(museu1 > 2 );(museu1 < 1);
+    		
     printf("\t---------------------------------------\n");
+
 
     printf("Quantos ingressos você deseja comprar? ");
     scanf("%d", &quantidade);
+
+
     if ( museu1 ==1 ) //se ele escolher ingresso inteira
     {
         float preco_total = quantidade * museu_inteira;
@@ -82,6 +87,7 @@ int main(void)
         float preco_total = quantidade * museu_meia;
         printf(" Preço total: R$%.2f\n", preco_total);
     }
+
 
     for( ; ;)
     {
@@ -101,7 +107,8 @@ int main(void)
         }
         if (pagamento == 2)
         {
-            system("cls");//para limpar a tela
+            system("cls");
+
             printf("\tPagamento sendo processado...\n");
             Sleep(3000);
             system("cls");
@@ -113,7 +120,8 @@ int main(void)
 
         if (pagamento == 3)
         {
-            system("cls");//para limpar a tela
+            system("cls");
+
             printf("\tPagamento sendo processado...\n");
             Sleep(3000);
             system("cls");
@@ -125,7 +133,7 @@ int main(void)
 
         if (pagamento == 4)
         {
-            system("cls");//para limpar a tela
+            system("cls");
 
             printf("\tPagamento sendo processado...\n");
             Sleep(3000);
@@ -155,7 +163,7 @@ int main(void)
     {
         printf("\t\nInforme o seu token: ");
         scanf("%d", &verificar);
-        system("cls");//para limpar a tela
+        system("cls");
         printf("Validando...");
         Sleep(1500);
 
@@ -175,7 +183,8 @@ int main(void)
         }
     }
 
-    printf("\n\n\n-----------------------------------------------------------------------------------------\n");
+    printf("\n\n\n------------------------------------------------------------------------------\n");
 
-
+    
+    system("pause");
 }
