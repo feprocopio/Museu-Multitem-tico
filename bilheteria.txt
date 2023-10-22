@@ -30,17 +30,17 @@ int main(void)
     printf("\t SELECIONE O TIPO DE INGRESSO: \n\n");
 
 
-			do
-    			{
-				printf("\t [1]Inteira: 10,00 R$ \n");
-        		printf("\t [2]Meia: 5,00 R$ \n");
-        		scanf("%i",&museu1); //variavel forma de pagamento
+    do
+{
+	printf("\t [1]Inteira: 10,00 R$ \n");
+        printf("\t [2]Meia: 5,00 R$ \n");
+        scanf("%i",&museu1); //variavel forma de pagamento
 
-                frase [50]= &museu1;
+        frase [50]= &museu1;
 
-                pont_arq = fopen("meiaouinteira.csv", "a"); // "a" vai adicionar mais conteudo
-        		// testando para ver se o arquivo foi realmente criado
-        		if (pont_arq == NULL)
+        pont_arq = fopen("meiaouinteira.csv", "a"); // "a" vai adicionar mais conteudo
+        // testando para ver se o arquivo foi realmente criado
+        if (pont_arq == NULL)
         {
             printf("Erro ao tentar abrir!");
             exit(1);
@@ -56,18 +56,16 @@ int main(void)
             printf("\nDados gravados com sucesso\n");
         }
 
-    fclose(pont_arq);
+        if (museu1 == 0)  //se o usuário digitar nenhum dos numeros espepcificados
+        {
+            museu1 = 3;
+        }
+        if (museu1 > 2)
+        {
+            	printf("Opção invalida, tente novamente.\n"); // repetição até ele digitar corretamente
+        }
 
-        		if (museu1 == 0)  //se o usuário digitar nenhum dos numeros espepcificados
-        		{
-            		museu1 = 3;
-        		}
-        			if (museu1 > 2)
-        			{
-            			printf("Opção invalida, tente novamente.\n"); // repetição até ele digitar corretamente
-        			}
-
-    			}while(museu1 > 2 );(museu1 < 1);
+    }while(museu1 > 2 );(museu1 < 1);
 
     printf("\t---------------------------------------\n");
 
