@@ -75,8 +75,7 @@ int main(void)
             fclose(pont_arq);
 
             printf("\nDados gravados com sucesso\n");
-        }     
-        
+        }        
     }
 
     if ( museu1 ==2 )  //se ele escolher ingresso meia
@@ -162,7 +161,6 @@ int main(void)
         }
     }
 
-
     /* Função srand vai utilizar a leitura do relogio do sistema*/
     srand(time(NULL));
     num = rand() % 100000; /* Função para escolher um numéro aleatória (token)*/
@@ -196,8 +194,6 @@ int main(void)
         }
     }
 
-    printf("\n\n\n------------------------------------------------------------------------------\n");
-
-    
+    printf("\n\n\n------------------------------------------------------------------------------\n");   
     system("pause");
 }
