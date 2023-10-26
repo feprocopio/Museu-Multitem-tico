@@ -58,15 +58,15 @@ int main(void){
 		}
 	}while(respostas[4] < 1 || respostas[4] > 5);
 	
-	printf("Agradecemos pela a sua avaliação %s, até a próxima :).\n", nome);
+	printf("\nAgradecemos pela a sua avaliação %s, até a próxima :).\n", nome);
 	
 	// Cria o arquivo CSV e escreve as respostas do usuário
 	
 	FILE *fp;
-	fp = fopen("respostas.csv", "w");
+	fp = fopen("respostas.csv", "a");
 	fprintf(fp, "Respostas do usuario %s:\n", nome);
-	fprintf(fp, "A estudante Russa Anita Malfatti %d\n");
-	fprintf(fp, "Pierrete Di Cavalcanti %d\n");
+	fprintf(fp, "A estudante Russa Anita Malfatti \n");
+	fprintf(fp, "Pierrete Di Cavalcanti \n");
 	fprintf(fp, "Abaporu Tarsila do Amaral\n");
 	fprintf(fp, "Atendimento dos funcionários\n");
 	fprintf(fp, "Estrutura\n");
@@ -75,7 +75,7 @@ int main(void){
 	}
 	fclose(fp);
 
-	printf("As suas respostas foram salvas para melhorias no museu, seguindo as normas da LGDP (Lei Geral de Proteção de Dados Nº13.709).\n");
+	printf("\nAs suas respostas foram salvas para melhorias no museu, seguindo as\n normas da LGDP (Lei Geral de Proteção de Dados Nº13.709).\n");
 	
 	system("pause");
 	
